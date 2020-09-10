@@ -27,3 +27,18 @@ public class BaekJoon1929 {
 		}
 	}
 }
+//시간초과
+//while (b - a != 0) {
+//	int count = 0;
+//	for (double j = 2; j * j <= a; j++) {
+//		if (a % j == 0) {
+//			count++;
+//		}
+//	}
+//	if (count == 0 && a != 1) {
+//		System.out.print(a + "\n");
+//	}
+//	a++;
+//}
+//}
+//}
