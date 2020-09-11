@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class BaekJoon11729 {
 	static int count = 0;
 	static StringBuilder sb = new StringBuilder();
-
+	//í•˜ë…¸ì´ íƒ‘ ì´ë™ ìˆœì„œ
 	private static void hanoi(int n, int a, int b, int c) {
-							// a ½ÃÀÛ b º¸Á¶ c ¸ñÇ¥
+							// a ì‹œì‘ b ë³´ì¡° c 
 		count++;
 		if (n == 1) {
 			sb.append(a + " " + c + "\n");
