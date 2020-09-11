@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BaekJoon1929 {
 	public static void main(String[] args) {
-		// ¼Ò¼ö ±¸ÇÏ±â
+		// ì†Œìˆ˜ êµ¬í•˜ê¸°
 		Scanner sc = new Scanner(System.in);
 
 		int m = sc.nextInt();
@@ -27,7 +27,7 @@ public class BaekJoon1929 {
 		}
 	}
 }
-//½Ã°£ÃÊ°ú
+// ì‹œê°„ì´ˆê³¼
 //while (b - a != 0) {
 //	int count = 0;
 //	for (double j = 2; j * j <= a; j++) {
