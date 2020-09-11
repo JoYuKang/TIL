@@ -7,7 +7,7 @@ public class BaekJoon11729 {
 	static StringBuilder sb = new StringBuilder();
 	//하노이 탑 이동 순서
 	private static void hanoi(int n, int a, int b, int c) {
-							// a 시작 b 보조 c 
+							// a 시작 b 보조 c 목표
 		count++;
 		if (n == 1) {
 			sb.append(a + " " + c + "\n");
