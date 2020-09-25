@@ -12,18 +12,18 @@
 
   Queue 사용법
    add 		값 추가 
-	 offer	가능하면 요소를 삽입해, 가능하지 않으면 false를 리턴
-	 peek 	다음에 출력될 값을 확인
-	 remove	remove() 메서드는 예외를 발생
-	 poll 	헤드를 검색 및 제거하거나, 대기열이 비어 있으면 null을 반환
-	  큐가 비어있는 경우의 동작만이 다릅니다. 
-	  메서드는 큐의 선두를 삭제 및 리턴
+	 offer	가능하면 요소를 삽입해, 가능하지 않으면 false를 리턴     
+	 peek 	다음에 출력될 값을 확인     
+	 remove	remove() 메서드는 예외를 발생     
+	 poll 	헤드를 검색 및 제거하거나, 대기열이 비어 있으면 null을 반환     
+	  큐가 비어있는 경우의 동작만이 다릅니다.      
+	  메서드는 큐의 선두를 삭제 및 리턴     
     
-  PriorityQueue 사용법
-     PriorityQueue<Integer> q = new PriorityQueue<>();
-     오름차순 정렬
-     PriorityQueue<Integer> q = new PriorityQueue<>(Collections.reverseOrder());
-		 Collections.reverseOrder() 사용시 내림차순 정렬
+  PriorityQueue 사용법     
+     PriorityQueue<Integer> q = new PriorityQueue<>();     
+     오름차순 정렬     
+     PriorityQueue<Integer> q = new PriorityQueue<>(Collections.reverseOrder());     
+		 Collections.reverseOrder() 사용시 내림차순 정렬     
   
    ### 2.PYTHON
   
