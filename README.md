@@ -3,6 +3,20 @@
   ### 1. JAVA
   문자열 비교
   
+  #### charAt(i)
+  DFS (깊이 우선 탐색 Depth First Search)     
+  루트 노드나 임의의 노드에서 시작하여 끝까지 탐색한 후 다시 원점으로 돌아가 다른 루트로 탐색하는 방식     
+  즉, 다음 노드로 넘어가기 전에 해당 노드의 분기에 대해 완전 탐색을 하는 방식입니다. 
+
+  DFS는 자동 미로 생성 또는 미로 탐색에 주로 사용
+  
+  #####특징
+
+  넓게(Breadth) 탐색하기 전에 깊게(Depth) 탐색함     
+  모든 노드를 방문하고자 하는 경우에 사용     
+  자기 자신을 호출하는 순환 알고리즘의 형태 (재귀호출)★     
+  노드 방문 여부를 확인함.     
+  
   #### charAt(i)    
   i번째의 인수를 읽어 문자로 반환한다.
   
@@ -24,6 +38,14 @@
      오름차순 정렬     
      PriorityQueue<Integer> q = new PriorityQueue<>(Collections.reverseOrder());     
 		 Collections.reverseOrder() 사용시 내림차순 정렬     
+  
+  
+  
+  
+  
+  
+  
+  
   
    ### 2.PYTHON
   
