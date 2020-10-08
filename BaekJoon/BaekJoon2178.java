@@ -5,6 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class BaekJoon2178 {
+	//ë¯¸ë¡œ 
 	static int arr[][];
 	static boolean visit[][];
 
@@ -47,25 +48,25 @@ public class BaekJoon2178 {
 		Queue<Dot> q = new LinkedList<Dot>();
 		q.add(new Dot(n, m));
 		visit[n][m] = true;
-		int[] dx = { 1, -1, 0, 0 }; // ¿ì, ÇÏ, ÁÂ, »ó
+		int[] dx = { 1, -1, 0, 0 }; // ìš°, í•˜, ì¢Œ, ìƒ
 		int[] dy = { 0, 0, 1, -1 };
 		while (!q.isEmpty()) {
 			Dot d = q.poll();
 			for (int i = 0; i < 4; i++) {
-				// ´ÙÀ½ ¹æ¹®ÇÒ ÁÂÇ¥ nextX, nextY
+				// ë‹¤ìŒ ë°©ë¬¸í•  ì¢Œí‘œ nextX, nextY
 				int nextX = d.x + dx[i];
 				int nextY = d.y + dy[i];
 				
-				//¹è¿­ ¹üÀ§ ¾È¿¡¼­¸¸ °¡´É 
+				//ë°°ì—´ ë²”ìœ„ ì•ˆì—ì„œë§Œ ê°€ëŠ¥ 
 				if (nextX >= 0 && nextY >= 0 && nextX < h && nextY < w) {
-					//¹è¿­¿¡ 1ÀÌ µé¾î°¡ÀÖÀ¸¸é¼­ ¾ÆÁ÷ ¹æ¹® ¾ÈÇÑ »óÅÂ¸¸
+					//ë°°ì—´ì— 1ì´ ë“¤ì–´ê°€ìˆìœ¼ë©´ì„œ ì•„ì§ ë°©ë¬¸ ì•ˆí•œ ìƒíƒœë§Œ
 					if (!visit[nextX][nextY] && arr[nextX][nextY] == 1) {
-						// ¹æ¹® ÁÂÇ¥¿¡ °ª ³Ö±â
+						// ë°©ë¬¸ ì¢Œí‘œì— ê°’ ë„£ê¸°
 						q.add(new Dot(nextX, nextY));
-						// ¹è¿­¾È¿¡ ´ÙÀ½ ¹æ¹®ÇÒ °÷Àº ÇöÀç ¹æ¹®Çß´ø Á¡º¸´Ù 1Ä­ ´õ °¡¾ßÇÏ¹Ç·Î +1 ???
+						// ë°°ì—´ì•ˆì— ë‹¤ìŒ ë°©ë¬¸í•  ê³³ì€ í˜„ì¬ ë°©ë¬¸í–ˆë˜ ì ë³´ë‹¤ 1ì¹¸ ë” ê°€ì•¼í•˜ë¯€ë¡œ +1 ???
 						arr[nextX][nextY] = arr[d.x][d.y] + 1;
 
-						// ´ÙÀ½ ÁÂÇ¥´Â ¹æ¹®ÇßÀ½À¸·Î Ç¥½Ã
+						// ë‹¤ìŒ ì¢Œí‘œëŠ” ë°©ë¬¸í–ˆìŒìœ¼ë¡œ í‘œì‹œ
 						visit[nextX][nextY] = true;
 					}
 				}
