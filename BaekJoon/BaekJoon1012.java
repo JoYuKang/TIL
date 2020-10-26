@@ -5,6 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class BaekJoon1012 {
+
 	static int arr[][];
 	static boolean visit[][];
 
@@ -57,22 +58,22 @@ public class BaekJoon1012 {
 		q.add(new Dot(n, m));
 		visit[n][m] = true;
 		while (!q.isEmpty()) {
-			int[] dx = { 1, -1, 0, 0 }; // ¿ì, ÇÏ, ÁÂ, »ó
+			int[] dx = { 1, -1, 0, 0 }; // ìš°, í•˜, ì¢Œ, ìƒ
 			int[] dy = { 0, 0, 1, -1 };
 
 			Dot d = q.poll();
 			for (int i = 0; i < 4; i++) {
-				// ´ÙÀ½ ¹æ¹®ÇÒ ÁÂÇ¥ nextX, nextY
+				// ë‹¤ìŒ ë°©ë¬¸í•  ì¢Œí‘œ nextX, nextY
 				int nextX = d.x + dx[i];
 				int nextY = d.y + dy[i];
 
-				// ¹è¿­ ¹üÀ§ ¾È¿¡¼­¸¸ °¡´É
+				// ë°°ì—´ ë²”ìœ„ ì•ˆì—ì„œë§Œ ê°€ëŠ¥
 				if (nextX >= 0 && nextY >= 0 && nextX < h && nextY < w) {
-					// ¹è¿­¿¡ 1ÀÌ µé¾î°¡ÀÖÀ¸¸é¼­ ¾ÆÁ÷ ¹æ¹® ¾ÈÇÑ »óÅÂ¸¸
+					// ë°°ì—´ì— 1ì´ ë“¤ì–´ê°€ìˆìœ¼ë©´ì„œ ì•„ì§ ë°©ë¬¸ ì•ˆí•œ ìƒíƒœë§Œ
 					if (!visit[nextX][nextY] && arr[nextX][nextY] == 1) {
-						// ¹æ¹® ÁÂÇ¥¿¡ °ª ³Ö±â
+						// ë°©ë¬¸ ì¢Œí‘œì— ê°’ ë„£ê¸°
 						q.add(new Dot(nextX, nextY));
-						// ´ÙÀ½ ÁÂÇ¥´Â ¹æ¹®ÇßÀ½À¸·Î Ç¥½Ã
+						// ë‹¤ìŒ ì¢Œí‘œëŠ” ë°©ë¬¸í–ˆìŒìœ¼ë¡œ í‘œì‹œ
 						visit[nextX][nextY] = true;
 					}
 				}
