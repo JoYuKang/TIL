@@ -70,5 +70,23 @@ public static void main(String[] args) {
 </code></pre>      
 #### DFS
 
+#### 소수 구하는 에라토스테네스의 체   
+ <pre><code>
+	static int[] arr = new int[1000001]; // 범위 설정
+	
+	arr[1] = 1; // 초기값 설정 
+	//에라토스테네스의 체 구현
+	
+		for (int i = 2; i <= n; i++) {
+			for (int j = 2; i * j <= n; j++) {
+				arr[i * j] = 1;
+			}
+		}
+	// 값 찾기
+	for (int i = m; i <= n; i++) {
+		if (arr[i] != 1) // 소수인 값 구하기
+			System.out.println(i); // 
+		}
+</code></pre>  
 
 
