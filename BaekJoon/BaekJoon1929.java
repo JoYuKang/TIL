@@ -1,10 +1,10 @@
-package test02;
+package tomorrow;
 
 import java.util.Scanner;
 
 public class BaekJoon1929 {
 	public static void main(String[] args) {
-		// ì†Œìˆ˜ êµ¬í•˜ê¸°
+		// ¼Ò¼ö ±¸ÇÏ±â
 		Scanner sc = new Scanner(System.in);
 
 		int m = sc.nextInt();
@@ -27,7 +27,7 @@ public class BaekJoon1929 {
 		}
 	}
 }
-// ì‹œê°„ì´ˆê³¼
+//½Ã°£ÃÊ°ú
 //while (b - a != 0) {
 //	int count = 0;
 //	for (double j = 2; j * j <= a; j++) {
