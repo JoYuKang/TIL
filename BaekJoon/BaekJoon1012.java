@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class BaekJoon1012 {
-
+            
 	static int arr[][];
 	static boolean visit[][];
 
