@@ -89,4 +89,31 @@ public static void main(String[] args) {
 		}
 </code></pre>  
 
+#### 수열 (모든 경우의 수 구하기)
+<pre><code>	
+	//  경우의 수를 넣을 배열 ch, 시작할 위치 depth,뽑을 수의 개수 r
+   static void permutation(char[] ch, int depth, int r) {
+        StringBuilder sb = new StringBuilder();
 
+        if (depth == r) {
+            for (int i = 0; i < r; i++) {
+                sb.append(chars[i]);
+            }
+            list.add(sb.toString());
+            sb.delete(0, sb.length());
+            return;
+        }
+
+        for (int i = depth; i < chars.length; i++) {
+            char tmp = chars[depth];
+            chars[depth] = chars[i];
+            chars[i] = tmp;
+
+            permutation(chars, depth + 1, r);
+
+            //스왑한거 다시 되돌리기
+            chars[i] = chars[depth];
+            chars[depth] = tmp;
+        }
+    }
+</code></pre> 
