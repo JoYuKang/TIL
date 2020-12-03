@@ -89,7 +89,7 @@ public static void main(String[] args) {
 		}
 </code></pre>  
 
-#### 수열 (모든 경우의 수 구하기)
+#### 순열 (모든 경우의 수 구하기)
 <pre><code>	
 	//  경우의 수를 넣을 배열 ch, 시작할 위치 depth,뽑을 수의 개수 r
    static void permutation(char[] ch, int depth, int r) {
