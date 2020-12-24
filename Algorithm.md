@@ -1,7 +1,8 @@
 # TIL
 ## Today I Learned Algorithm
 
-### JAVA     
+### JAVA 
+
 #### BFS 미로찾기
 
   //기본 값   
