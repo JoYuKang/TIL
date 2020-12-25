@@ -118,3 +118,9 @@ public static void main(String[] args) {
         }
     }
 </code></pre> 
+
+#### 동적 계획법(Dynamic Programming) 
+
+     Overlapping Subproblem     
+     Optimal Substructure
+        
