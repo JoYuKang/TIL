@@ -118,7 +118,21 @@ public static void main(String[] args) {
         }
     }
 </code></pre> 
+#### 최대 공약수 와 최소 공배수
+<pre><code>
+  static int gcd(int a, int b) {
+        while (b != 0) {
+            int r = a % b;
+            a = b;
+            b = r;
+        }
+        return a;
+    }
 
+    static int lcm(int a, int b) {
+        return a * b / gcd(a, b);
+    }
+    </code></pre> 
 #### 동적 계획법(Dynamic Programming) 
 
      Overlapping Subproblem     
