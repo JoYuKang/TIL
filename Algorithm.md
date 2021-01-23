@@ -137,4 +137,11 @@ public static void main(String[] args) {
 
      Overlapping Subproblem     
      Optimal Substructure
+     
+     
+#### 퇴각검색(BackTracking)     
+해를 찾아가는 도중, 지금의 경로가 해가 될 것 같지 않으면 그 경로를 더이상 가지 않고 되돌아갑니다.     
+ 반복문의 횟수까지 줄임 효율성 Good
+	
+    
         
