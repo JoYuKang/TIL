@@ -13,7 +13,7 @@ public class Between_sum_of_two_integers {
                 for(int i = b;i<=a;i++){
                     answer += i;
                 }
-            }else {
+            }else {  
                 for(int i = a;i<=b;i++){
                     answer += i;
                 }
