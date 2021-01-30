@@ -142,6 +142,34 @@ public static void main(String[] args) {
 #### 퇴각검색(BackTracking)     
 해를 찾아가는 도중, 지금의 경로가 해가 될 것 같지 않으면 그 경로를 더이상 가지 않고 되돌아갑니다.     
  반복문의 횟수까지 줄임 효율성 Good
+	<pre><code>
 	
-    
+        public static void dfs(int d) {
+	
+        //개수 같으면 출력
+        if (M == d) {
+            for (int i = 0; i < M; i++) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+        } else { // 개수 다름
+            for (int i = 1; i <= N; i++) {
+                if (!visit[i]) {
+                   // if (d == 0 || arr[d - 1] < i) { // 뒤에 값이 더 크면 출력 
+                        //d == 0은 다 출력 (1,2 | 1,3 | 1,4)
+                        //이전 arr[]원소가 현재 i보다 작을 때
+
+                        visit[i] = true; //방문 처리
+                        arr[d] = i; //원소 담기
+
+                        dfs(d + 1); //재귀
+
+                        //원상복구
+                        visit[i] = false;
+                 //   }
+                }
+            }
+        }
+    }
+    </code></pre> 
         
