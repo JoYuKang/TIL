@@ -1,4 +1,4 @@
-package Pro;
+package Programmers;
 
 public class Between_sum_of_two_integers {
     public static void main(String[] args) {
