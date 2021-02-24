@@ -133,6 +133,41 @@ public static void main(String[] args) {
         return a * b / gcd(a, b);
     }
     </code></pre> 
+    
+#### 피보나치 수열점
+
+	점화식 재귀함수 사용
+	
+<pre><code>
+public int Fibonacci(int n) {
+        // 재귀함수 활용
+        if(n <= 1) 
+            return 1;
+        else
+            return Fibonacci(n-1) + Fibonacci(n-2);
+    }
+</code></pre>      
+
+동적프로그래밍기법 사용     
+	<pre><code>
+	public static int dynamicFibonacci(int n) {
+        int last1, last2, result = 0;
+        
+        if(n <= 1)
+            return 1;
+        
+        last1 = 1;
+        last2 = 1;
+        
+        for(int i=1; i < n; i++) {
+            result = last1 + last2;
+            last1 = last2;
+            last2 = result;
+        }
+        
+        return result;
+    }
+	</code></pre> 
 #### 동적 계획법(Dynamic Programming) 
 
      Overlapping Subproblem     
