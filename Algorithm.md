@@ -134,7 +134,7 @@ public static void main(String[] args) {
     }
     </code></pre> 
     
-#### 피보나치 수열점
+#### 피보나치 수열
 
 	점화식 재귀함수 사용
 	
