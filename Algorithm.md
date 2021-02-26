@@ -69,6 +69,42 @@ public static void main(String[] args) {
 		}
 }
 </code></pre>      
+     
+#### BFS 최단거리 찾기
+<pre><code> 
+//BaekJoon1697 
+    static void bfs(int num) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(num);
+        visit[num] = 1;
+
+        while (!q.isEmpty()) {
+            int temp = q.poll();
+
+            for (int i = 0; i < 3; i++) {
+                int next;
+
+                if (i == 0) {
+                    next = temp + 1;
+                } else if (i == 1) {
+                    next = temp - 1;
+                } else {
+                    next = temp * 2;
+                }
+
+                if (next == end) {
+                    System.out.println(visit[temp]);
+                    return;
+                }
+
+                if (next >= 0 && next < visit.length && visit[next] == 0) {
+                    q.add(next);
+                    visit[next] = visit[temp] + 1;
+                }
+            }
+        }
+    }
+</code></pre>   
 #### DFS
 
 #### 소수 구하는 에라토스테네스의 체   
@@ -177,7 +213,7 @@ public int Fibonacci(int n) {
 #### 퇴각검색(BackTracking)     
 해를 찾아가는 도중, 지금의 경로가 해가 될 것 같지 않으면 그 경로를 더이상 가지 않고 되돌아갑니다.     
  반복문의 횟수까지 줄임 효율성 Good
-	<pre><code>
+<pre><code>
 	
         public static void dfs(int d) {
 	
@@ -206,5 +242,5 @@ public int Fibonacci(int n) {
             }
         }
     }
-    </code></pre> 
+</code></pre> 
         
