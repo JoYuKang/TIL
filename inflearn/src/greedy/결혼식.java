@@ -8,14 +8,16 @@ public class 결혼식 {
         int answer = 0;
         int max = 0;
         int num = sc.nextInt();
+
+        // Time 객체를 넣어 시작시간과 끝나는 시간을 고려할 수 있다.
         ArrayList<Time> arr = new ArrayList<>();
 
 
         for (int i = 0; i < num; i++) {
-            int start = sc.nextInt();
-            int end = sc.nextInt();
-            arr.add(new Time(start, 's'));
-            arr.add(new Time(end, 'e'));
+//            int start = sc.nextInt();
+//            int end = sc.nextInt();
+            arr.add(new Time(sc.nextInt(), 's'));
+            arr.add(new Time(sc.nextInt(), 'e'));
         }
 
         Collections.sort(arr, new Comparator<Time>() {
@@ -28,6 +30,7 @@ public class 결혼식 {
             }
         });
 
+//        time 정렬 확인용 로직
 //        for (Time time : arr) {
 //            System.out.println("time = " + time.time + " " + time.check);
 //        }
@@ -43,7 +46,9 @@ public class 결혼식 {
         System.out.println(answer);
     }
     public static class Time{
+        // 시간
         int time;
+        // 시작, 끝  
         char check;
 
         Time(int time, char check) {
