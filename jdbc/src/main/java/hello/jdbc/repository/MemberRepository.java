@@ -60,8 +60,57 @@ public class MemberRepository {
             log.error("error ", e);
             throw e;
         }
+        finally {
+            close(con, pstmt, rs);
+        }
 
     }
+
+    public void update(String memberId, int money) throws SQLException {
+        String sql = "update Member set money=? Where Member_Id = ?";
+
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            con = getConnection();
+            pstmt = con.prepareStatement(sql );
+            pstmt.setInt(1, money);
+            pstmt.setString(2, memberId);
+            int resultSize = pstmt.executeUpdate();
+            log.info("member update size = {}", resultSize);
+        } catch (SQLException e) {
+            log.error("error ", e);
+            throw e;
+        }
+        finally {
+            close(con, pstmt, rs);
+        }
+    }
+
+    public void delete(String memberId) throws SQLException {
+        String sql = "delete from Member Where Member_Id = ?";
+
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            con = getConnection();
+            pstmt = con.prepareStatement(sql );
+            pstmt.setString(1, memberId);
+            int resultSize = pstmt.executeUpdate();
+            log.info("member delete size = {}", resultSize);
+        } catch (SQLException e) {
+            log.error("error ", e);
+            throw e;
+        }
+        finally {
+            close(con, pstmt, rs);
+        }
+    }
+
 
     private void close(Connection con, Statement stmt, ResultSet rs) throws SQLException {
         if (rs != null) {
