@@ -13,8 +13,8 @@ public class WaterMelon {
 	public static StringBuffer solution(int n) {
 		StringBuffer answer = new StringBuffer();
 		int z = n;
-		char s = '¼ö';
-		char b = '¹Ú';
+		char s = 'ê°€';
+		char b = 'ë‚˜';
 		StringBuffer sb = new StringBuffer();
 		for (int i = 0; i < z; i++) {
 			if(i%2==0) {
