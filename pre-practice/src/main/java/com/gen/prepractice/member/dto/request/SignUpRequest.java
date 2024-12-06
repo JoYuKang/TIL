@@ -1,6 +1,6 @@
 package com.gen.prepractice.member.dto.request;
 
-import com.gen.prepractice.member.Member;
+import com.gen.prepractice.member.domain.Member;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;

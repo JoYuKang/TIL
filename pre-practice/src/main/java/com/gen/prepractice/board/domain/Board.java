@@ -1,5 +1,6 @@
-package com.gen.prepractice.board;
+package com.gen.prepractice.board.domain;
 
+import com.gen.prepractice.member.domain.Member;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -17,13 +18,13 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "제목은 곱백일 수 없습니다.")
+    @NotBlank(message = "제목은 공백일 수 없습니다.")
     private String title;
-
-    private String category;
 
     @NotBlank(message = "내용은 공백일 수 없습니다.")
     private String Content;
 
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
 }

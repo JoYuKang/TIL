@@ -5,17 +5,17 @@ spring:
       path: /h2-console
 
   datasource:
-    url: jdbc:h2:mem:pra # test ??? ??? ??? ??? ???? ???.
-    username: sa # username? password? ??? ??? ??
+    url: jdbc:h2:tcp://localhost/~/test # h2 url
+    username: sa
     password:
     driver-class-name: org.h2.Driver
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
-        format_sql: true # ???? query? ???
+        format_sql: true
   application:
     name: pre-practice
 

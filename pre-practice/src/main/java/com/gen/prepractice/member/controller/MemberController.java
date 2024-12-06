@@ -1,6 +1,6 @@
 package com.gen.prepractice.member.controller;
 
-import com.gen.prepractice.member.Member;
+import com.gen.prepractice.member.domain.Member;
 import com.gen.prepractice.member.service.MemberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

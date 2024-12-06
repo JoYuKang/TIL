@@ -1,6 +1,5 @@
 package com.gen.prepractice.member.service;
 
-import com.gen.prepractice.member.Member;
 import com.gen.prepractice.member.dto.request.SignUpRequest;
 import com.gen.prepractice.member.repository.MemberRepository;
 import com.gen.prepractice.member.service.exception.SignUpDuplicateException;
