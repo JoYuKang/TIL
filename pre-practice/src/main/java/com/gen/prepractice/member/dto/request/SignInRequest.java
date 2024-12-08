@@ -21,7 +21,4 @@ public class SignInRequest {
     )
     private String password;
 
-
-
-
 }

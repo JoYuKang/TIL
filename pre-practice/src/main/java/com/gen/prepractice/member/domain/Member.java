@@ -1,6 +1,7 @@
 package com.gen.prepractice.member.domain;
 
 import com.gen.prepractice.board.domain.Board;
+import com.gen.prepractice.comon.entity.BaseEntity;
 import com.gen.prepractice.member.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -16,7 +17,7 @@ import java.util.List;
 @Table(name ="tb_member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,14 +3,8 @@ package com.gen.prepractice.board.dto.request;
 import com.gen.prepractice.board.domain.Board;
 import com.gen.prepractice.member.domain.Member;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
-@Getter
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class AddBoardRequest {
-
+public class ModBoardRequest {
     @NotBlank
     private String title;
 
@@ -25,7 +19,7 @@ public class AddBoardRequest {
 
     private String authorName;
 
-    public static Board toAddBoard(AddBoardRequest request, Member member) {
+    public static Board toModBoard(ModBoardRequest request, Member member) {
         if (request.authorName.isBlank()) {
             request.authorName = member.getUsername();
         }
