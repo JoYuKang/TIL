@@ -1,6 +1,7 @@
 package com.gen.prepractice.member.controller;
 
 import com.gen.prepractice.member.domain.Member;
+import com.gen.prepractice.member.dto.request.SignUpRequest;
 import com.gen.prepractice.member.service.MemberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -8,19 +9,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/member")
+@RestController
+@RequestMapping("/member")
 @RequiredArgsConstructor
 public class MemberController {
 
     private final MemberService memberService;
 
     @PostMapping("/signup")
-    public ResponseEntity<Void> signup(@Valid @RequestBody Member member) {
+    public ResponseEntity<Void> signup(@Valid @RequestBody SignUpRequest request) {
 
-        // service
-
+        memberService.signUp(request);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

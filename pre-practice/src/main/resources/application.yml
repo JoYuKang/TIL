@@ -10,6 +10,10 @@ spring:
     password:
     driver-class-name: org.h2.Driver
 
+  messages:
+    basename: message
+    encoding: utf-8
+
   jpa:
     hibernate:
       ddl-auto: create

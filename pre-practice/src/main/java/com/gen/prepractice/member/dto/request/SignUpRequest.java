@@ -1,6 +1,7 @@
 package com.gen.prepractice.member.dto.request;
 
 import com.gen.prepractice.member.domain.Member;
+import com.gen.prepractice.member.enums.Role;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
@@ -27,6 +28,7 @@ public class SignUpRequest {
         return Member.builder()
                 .username(signUpRequest.username)
                 .password(signUpRequest.password)
+                .role(Role.USER)
                 .build();
     }
 }
