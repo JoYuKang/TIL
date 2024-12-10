@@ -20,6 +20,8 @@ public class AddBoardRequest {
     @NotBlank
     private String content;
 
+    private Long memberId;
+
     @NotBlank
     private String userName;
 

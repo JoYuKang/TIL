@@ -46,4 +46,13 @@ public class Board extends BaseEntity {
         this.authorName = authorName;
         this.memberName = member.getUsername();
     }
+
+    public void updateBoard(String title, String password, String content,String authorName, Member member) {
+        this.title = title;
+        this.password = password;
+        this.content = content;
+        this.member = member;
+        this.authorName = authorName;
+        this.memberName = member.getUsername();
+    }
 }
