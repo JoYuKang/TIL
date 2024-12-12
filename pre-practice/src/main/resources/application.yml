@@ -25,3 +25,8 @@ spring:
 
 logging.level:
   org.hibernate.SQL: debug
+
+jwt:
+  secret: cZh9pS213BYk5OcYz1kAH8XC/+DuCBXL8UwGcpBxKwT4kJQ5nVSvnLZMmC5h4YY3QUxvP1wqmfftxxU05VLtA
+  header: Authorization
+  prefix: Bearer
