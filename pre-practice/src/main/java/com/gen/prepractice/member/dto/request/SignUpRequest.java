@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -30,5 +32,17 @@ public class SignUpRequest {
                 .password(signUpRequest.password)
                 .role(Role.USER)
                 .build();
+    }
+
+    public Member toMember(PasswordEncoder passwordEncoder) {
+        return Member.builder()
+                .username(username)
+                .password(passwordEncoder.encode(password))
+                .role(Role.USER)
+                .build();
+    }
+
+    public UsernamePasswordAuthenticationToken toAuthentication() {
+        return new UsernamePasswordAuthenticationToken(username, password);
     }
 }

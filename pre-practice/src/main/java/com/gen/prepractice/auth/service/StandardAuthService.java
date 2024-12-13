@@ -5,18 +5,33 @@ import com.gen.prepractice.auth.dto.request.SignInRequest;
 import com.gen.prepractice.auth.repository.RefreshTokenRepository;
 import com.gen.prepractice.config.dto.JwtDto;
 import com.gen.prepractice.config.jwt.JwtTokenProvider;
+import com.gen.prepractice.member.domain.Member;
+import com.gen.prepractice.member.dto.request.SignUpRequest;
+import com.gen.prepractice.member.dto.response.MemberResponseDto;
 import com.gen.prepractice.member.repository.MemberRepository;
+import com.gen.prepractice.member.service.exception.SignUpDuplicateException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.Optional;
+
+@Slf4j
 @Service
 @RequiredArgsConstructor
-public class StandardAuthService implements AuthService{
+public class StandardAuthService implements AuthService, UserDetailsService {
 
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
@@ -26,6 +41,16 @@ public class StandardAuthService implements AuthService{
 
     @Override
     @Transactional
+    public MemberResponseDto signup(SignUpRequest signupRequest) {
+        memberRepository.findByUsername(signupRequest.getUsername())
+                .ifPresent(member -> {
+                    throw new SignUpDuplicateException();
+                });
+        Member member = signupRequest.toMember(passwordEncoder);
+        return MemberResponseDto.of(memberRepository.save(member));
+    }
+    @Override
+    @Transactional
     public JwtDto signIn(SignInRequest request) {
         // 1. Login ID/PW 를 기반으로 AuthenticationToken 생성
         UsernamePasswordAuthenticationToken authenticationToken = request.toAuthentication();
@@ -33,6 +58,11 @@ public class StandardAuthService implements AuthService{
         // 2. 실제로 검증 (사용자 비밀번호 체크) 이 이루어지는 부분
         //    authenticate 메서드가 실행이 될 때 CustomUserDetailsService 에서 만들었던 loadUserByUsername 메서드가 실행됨
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+
+        if (authentication == null) {
+            log.error("AuthenticationManager is null. Ensure it is properly configured.");
+            throw new IllegalStateException("AuthenticationManager is not configured.");
+        }
 
         // 3. 인증 정보를 기반으로 JWT 토큰 생성
         JwtDto tokenDto = jwtTokenProvider.createToken(authentication);
@@ -78,5 +108,22 @@ public class StandardAuthService implements AuthService{
 
         // 토큰 발급
         return tokenDto;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        return memberRepository.findByUsername(username)
+                .map(this::createUserDetails).orElseThrow(() -> new UsernameNotFoundException(username + " 를 찾을 수 없습니다."));
+    }
+
+    private UserDetails createUserDetails(Member member) {
+        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(member.getRole().toString());
+
+        return new User(
+                String.valueOf(member.getId()),
+                member.getPassword(),
+                Collections.singleton(grantedAuthority)
+        );
     }
 }

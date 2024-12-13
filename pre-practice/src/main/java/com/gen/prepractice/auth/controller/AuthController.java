@@ -3,6 +3,8 @@ package com.gen.prepractice.auth.controller;
 import com.gen.prepractice.auth.dto.request.SignInRequest;
 import com.gen.prepractice.auth.service.AuthService;
 import com.gen.prepractice.config.dto.JwtDto;
+import com.gen.prepractice.member.dto.request.SignUpRequest;
+import com.gen.prepractice.member.dto.response.MemberResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     private final AuthService authService;
+    @PostMapping("/signup")
+    public ResponseEntity<MemberResponseDto> signup(@RequestBody SignUpRequest signUpRequest) {
+        return ResponseEntity.ok(authService.signup(signUpRequest));
+    }
 
     @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@RequestBody SignInRequest signInRequest) {

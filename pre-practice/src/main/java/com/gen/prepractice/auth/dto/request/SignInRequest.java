@@ -10,12 +10,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 public class SignInRequest {
 
     @NotBlank
-    private String userName;
+    private String username;
 
     @NotBlank
     private String password;
 
     public UsernamePasswordAuthenticationToken toAuthentication() {
-        return new UsernamePasswordAuthenticationToken(userName, password);
+        return new UsernamePasswordAuthenticationToken(username, password);
     }
 }
