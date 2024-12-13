@@ -28,7 +28,21 @@
     - username, password를 Client에서 전달받기
     - DB에서 username을 사용하여 저장된 회원의 유무를 확인하고 있다면 password 비교하기
     - 로그인 성공 시, 로그인에 성공한 유저의 정보와 JWT를 활용하여 토큰을 발급하고, 
-    발급한 토큰을 Header에 추가하고 성공했다는 메시지, 상태코드 와 함께 Client에 반환하기 
+    발급한 토큰을 Header에 추가하고 성공했다는 메시지, 상태코드 와 함께 Client에 반환하기
+## Git Commit Convention
+
+|Type| 설명                                   |
+|---|--------------------------------------|
+|feat| 새로운 타입 추가                            |
+|fix| 버그 수정                                
+|docs| 문서 수정                                |
+|style| 코드 포맷팅, 세미콜론 누락 수정 등 코드 자체 변경이 없는 경우 |
+|refactor| 로직의 변동이 없는 한에서의 코드 리펙토링              |
+|test| 테스크 관련 코드                            |
+|build| 빌드 관련 파일 수정                          |
+|ci| ci 설정 관련 파일 수정                       |
+|perf|성능 개선|
+
 ## 유스케이스
 ![image](https://github.com/user-attachments/assets/d6cbf75d-f7e1-4027-b373-4d817343e4cf)
 
